@@ -15,7 +15,7 @@ var myplugin
 if(process.env.NODE_ENV === 'production'){
   entry = [
     'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/foundation.min.js',
+    'script!bootstrap-sass/assets/javascripts/bootstrap.min.js',
     path.join(__dirname, 'src/app.js')
   ]
 
@@ -31,7 +31,7 @@ if(process.env.NODE_ENV === 'production'){
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/foundation.min.js',
+    'script!bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './src/app.js'
   ]
 
@@ -97,11 +97,17 @@ module.exports = {
       test: /\.css?$/,
       loader: "style-loader!css-loader",
       include: __dirname
-    }]
+    }, {
+      test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+      loader: "file"
+      }, {
+      test: /\.scss$/,
+      loaders: ["style", "css", "sass"]
+      }]
   },
   sassLoader: {
     includePaths: [
-      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+      path.resolve(__dirname, './node_modules/bootstrap-sass/stylesheets/bootstrap.scss')
     ]
   }
 };

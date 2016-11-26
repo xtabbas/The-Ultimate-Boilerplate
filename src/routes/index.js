@@ -7,8 +7,7 @@ import Dummy from 'Dummy'
 
 import { configure } from 'configureStore'
 
-$(document).foundation()
-require('style!css!sass!src/styles/app.scss')
+require('src/styles/app.scss')
 
 var store = configure()
 const history = syncHistoryWithStore(browserHistory, store)
