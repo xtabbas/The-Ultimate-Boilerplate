@@ -6,3 +6,8 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 // Components
 @import "components/page-title";
+
+html, body, #root{
+  width: 100%;
+  height: 100%
+}

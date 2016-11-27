@@ -4,4 +4,7 @@ npm-debug.log
 dist
 config/
 playground/
-public/bundle.js
+public/css
+public/fonts
+public/img
+public/js

@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { toggleAction } from './actions'
+
+require('./dummy.scss')
 
 export const DummyComponent = ({ dispatch, toggle }) => {
     let text
@@ -10,7 +12,7 @@ export const DummyComponent = ({ dispatch, toggle }) => {
       text = null
     }
       return(
-        <div>
+        <div className='dummy'>
           <h1 className="page-title">The Ultimate Boilerplate</h1>
 
           <div className="row">

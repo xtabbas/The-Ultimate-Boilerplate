@@ -1,9 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, IndexRoute, Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
 import Dummy from 'Dummy'
+
+require.ensure([
+	'Dummy'
+	], function(require) {
+		require('Dummy')
+	}, 'dummy')
 
 import { configure } from 'configureStore'
 
