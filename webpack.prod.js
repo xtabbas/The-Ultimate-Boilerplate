@@ -14,7 +14,11 @@ try {
 
 module.exports = {
     entry: {
-        common: ['script!jquery/dist/jquery.min.js', 'script!bootstrap-sass/assets/javascripts/bootstrap.min.js'],
+        common: [
+          'script!jquery/dist/jquery.min.js',
+          'script!bootstrap-sass/assets/javascripts/bootstrap.min.js'
+          'script!toastr/toastr.js',
+        ],
         vendor: path.join(__dirname, 'src/app.js'),
         polyfill: ['babel-polyfill']
     },
@@ -38,12 +42,7 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-                API_KEY: JSON.stringify(process.env.API_KEY),
-                AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
-                DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
-                STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET),
-                MESSAGE_SENDER_ID: JSON.stringify(process.env.MESSAGE_SENDER_ID)
+                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
@@ -57,6 +56,7 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
             'node_modules',
+            'bower_components',
             './src/components'
         ],
         alias: {
