@@ -5,11 +5,11 @@
 
   * Development server with react-hotloader 3 which include hot reloading the reducers etc
   * Redux time travel integrated with react-router
-  * Production server with webpack code splitting so you get really nice and fast load times
-  * Sass loading and image and fonts loading using file-loader
+  * Production server with webpack code splitting
+  * Sass loading + images/fonts loading using file-loader
   * Css extracting into its own file
   * Common chunk extraction
-  * Boot-strap and jquery is integrated out of the box
+  * Bootstrap and jquery setup out-of-the-box
   * Karma and mocha testing utils
   * Eslint with react
 
