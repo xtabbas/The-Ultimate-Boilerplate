@@ -10,13 +10,17 @@
   * Css extracting into its own file
   * Common chunk extraction
   * Bootstrap and jquery setup out-of-the-box
-  * Karma and mocha testing utils
-  * Eslint with react
+  * Mocha testing utils with enzyme and jsdom
+  * Eslinting for react
 
-### How to get going ?
-* `npm install` to download all the dependencies
-* `npm run dev` for a dev server with hot-reloading
-* `npm run build` for building webpack chunks for production
+### Live demo
+* https://secret-taiga-34450.herokuapp.com/
+
+### Scripts ?
+* `npm install` & `bower install` to download all the dependencies
+* `npm run dev` for starting a dev server with hot-reloading
+* `npm run build` for building production ready webpack build with chunks
 * `npm start` for launching production server
+* `test:watch` for starting mocha testing util with a watch flag
 
 update the package if needed `npm install -g npm-check-updates` -> `ncu -u`
