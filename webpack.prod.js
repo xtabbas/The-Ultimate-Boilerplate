@@ -13,7 +13,9 @@ try {
 module.exports = {
     entry: {
         common: [
-            'script!jquery/dist/jquery.min.js', 'script!bootstrap-sass/assets/javascripts/bootstrap.min.js' 'script!toastr/toastr.js'
+            'script!jquery/dist/jquery.min.js',
+            'script!bootstrap-sass/assets/javascripts/bootstrap.min.js',
+            'script!toastr/toastr.js'
         ],
         vendor: path.join(__dirname, 'src/app.js'),
         polyfill: ['babel-polyfill']

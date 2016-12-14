@@ -2,10 +2,5 @@ node_modules
 npm-debug.log
 bower_components
 .DS_Store
-dist
 config/
 playground/
-public/css
-public/fonts
-public/img
-public/js
