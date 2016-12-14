@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import toggle from './toggle'
+import { modal } from './motherReducer'
 
 export default combineReducers({
-  toggle,
+  modal,
   routing: routerReducer
 })

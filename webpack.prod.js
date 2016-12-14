@@ -8,16 +8,12 @@ process.env.NODE_ENV = 'production'
 
 try {
     envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'))
-} catch (e) {
-
-}
+} catch (e) {}
 
 module.exports = {
     entry: {
         common: [
-          'script!jquery/dist/jquery.min.js',
-          'script!bootstrap-sass/assets/javascripts/bootstrap.min.js'
-          'script!toastr/toastr.js',
+            'script!jquery/dist/jquery.min.js', 'script!bootstrap-sass/assets/javascripts/bootstrap.min.js' 'script!toastr/toastr.js'
         ],
         vendor: path.join(__dirname, 'src/app.js'),
         polyfill: ['babel-polyfill']
@@ -31,10 +27,7 @@ module.exports = {
         chunkFilename: '[name]_[chunkhash:20].js'
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            '$': 'jquery',
-            'jQuery': 'jquery'
-        }),
+        new webpack.ProvidePlugin({'$': 'jquery', 'jQuery': 'jquery'}),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 warnings: false
@@ -45,10 +38,7 @@ module.exports = {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-          name: 'common',
-          minChunks: 2
-        }),
+        new webpack.optimize.CommonsChunkPlugin({name: 'common', minChunks: 2}),
         new ExtractTextPlugin('css/[name].css')
 
     ],
@@ -57,7 +47,10 @@ module.exports = {
         modulesDirectories: [
             'node_modules',
             'bower_components',
-            './src/components'
+            './src/components/containers/scenes',
+            './src/components/containers/wrappers',
+            './src/components/presentationals/modals',
+            './src/components/presentationals/reuseables'
         ],
         alias: {
             src: 'src',
@@ -70,38 +63,33 @@ module.exports = {
         'fallback': path.join(__dirname, 'node_modules')
     },
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loaders: ['babel'],
-            exclude: /node_modules/,
-            include: __dirname
-        }, {
-            test: /\.js$/,
-            loaders: ['babel'],
-            include: path.join(__dirname, '..', '..', 'src')
-        }, {
-            test: /\.css?$/,
-            loader: "style-loader!css-loader",
-            include: __dirname
-        }, {
-            test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-            loader: "file-loader?name=fonts/[name].[ext]"
-        }, {
-            test: /\.(jpe?g|png|gif)$/i,
-            loader: "file-loader?name=img/[name].[ext]"
-        }, {
-            test: /\.scss$/,
-            loader: ExtractTextPlugin.extract(
-              'style-loader',
-              'css-loader!' +
-              'autoprefixer-loader?browsers=last 3 version' +
-              '!sass-loader?outputStyle=expanded&' +
-              'includePaths[]=' + path.resolve(__dirname, './node_modules'))
-        }]
+        loaders: [
+            {
+                test: /\.js$/,
+                loaders: ['babel'],
+                exclude: /node_modules/,
+                include: __dirname
+            }, {
+                test: /\.js$/,
+                loaders: ['babel'],
+                include: path.join(__dirname, '..', '..', 'src')
+            }, {
+                test: /\.css?$/,
+                loader: "style-loader!css-loader",
+                include: __dirname
+            }, {
+                test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+                loader: "file-loader?name=fonts/[name].[ext]"
+            }, {
+                test: /\.(jpe?g|png|gif)$/i,
+                loader: "file-loader?name=img/[name].[ext]"
+            }, {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!' + 'autoprefixer-loader?browsers=last 3 version' + '!sass-loader?outputStyle=expanded&' + 'includePaths[]=' + path.resolve(__dirname, './node_modules'))
+            }
+        ]
     },
     sassLoader: {
-        includePaths: [
-            path.resolve(__dirname, './node_modules/bootstrap-sass/stylesheets/bootstrap.scss')
-        ]
+        includePaths: [path.resolve(__dirname, './node_modules/bootstrap-sass/stylesheets/bootstrap.scss')]
     }
 };

@@ -3,13 +3,7 @@ import { Route, IndexRoute, Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
-import Dummy from 'Dummy'
-
-require.ensure([
-	'Dummy'
-	], function(require) {
-		require('Dummy')
-	}, 'dummy')
+import Welcome from 'Welcome'
 
 import { configure } from 'configureStore'
 
@@ -22,7 +16,7 @@ export default (
   <Provider store={store}>
     <Router history = { history } >
       <Route path="/">
-        <IndexRoute component={Dummy} />
+        <IndexRoute component={Welcome} />
       </Route>
     </Router>
   </Provider>
