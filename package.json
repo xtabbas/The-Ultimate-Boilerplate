@@ -4,7 +4,6 @@
     "description": "The ultimate boilerplate for react and redux with hot-reloading configured for reducers and react-router",
     "main": "app.js",
     "scripts": {
-        "prestart": "babel-node tools/startMessage.js",
         "start": "node ./bin/www",
         "dev": "node dev-server.js",
         "dev-back": "webpack --config webpack.prod && nodemon ./bin/www",
