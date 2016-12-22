@@ -5,14 +5,18 @@
 
   * Development server with react-hotloader 3 which include hot reloading the reducers etc
   * Redux time travel integrated with react-router
-  * Production server with webpack code splitting
+  * Node production server using Express and Mongoose
+  * Configured environment variables for prod and dev servers
   * Sass loading + images/fonts loading using file-loader
-  * Css extracting into its own file
-  * Common chunk extraction
+  * Css extracting into its own file using Webpack
+  * Common chunk extraction using Webpack
   * Bootstrap and jquery setup out-of-the-box
   * Mocha testing utils with enzyme and jsdom
   * Eslinting for react
 
+### Todo
+  * Webpack code splitting (PR welcomed)
+  
 ### Live demo
 * https://secret-taiga-34450.herokuapp.com/
 
