@@ -1,12 +1,6 @@
 var path = require('path');
 
 module.exports = {
-    externals: {
-        jquery: 'jQuery'
-    },
-    sassLoader: {
-        includePaths: [path.resolve(__dirname, './node_modules/bootstrap-sass/stylesheets/bootstrap.scss')]
-    },
     module: {
         loaders: [
             {
@@ -35,7 +29,6 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
           'node_modules',
-          'bower_components',
           './src/components/containers/scenes',
           './src/components/containers/wrappers',
           './src/components/presentationals/modals',

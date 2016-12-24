@@ -16,7 +16,6 @@
   "dependencies": {
     "axios": "^0.15.2",
     "body-parser": "~1.15.2",
-    "bootstrap-sass": "^3.3.7",
     "cookie-parser": "~1.4.3",
     "express": "~4.14.0",
     "express-history-api-fallback": "^2.0.0",

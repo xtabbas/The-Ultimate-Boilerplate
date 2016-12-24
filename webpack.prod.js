@@ -15,13 +15,9 @@ try {
 module.exports = merge(base, {
     entry: {
         common: [
-            'script!jquery/dist/jquery.min.js', 'script!bootstrap-sass/assets/javascripts/bootstrap.min.js', 'script!toastr/toastr.js'
         ],
         vendor: path.join(__dirname, 'src/app.js'),
         polyfill: ['babel-polyfill']
-    },
-    externals: {
-        jquery: 'jQuery'
     },
     output: {
         path: path.join(__dirname, 'public'),
@@ -29,7 +25,6 @@ module.exports = merge(base, {
         chunkFilename: '[name]_[chunkhash:20].js'
     },
     plugins: [
-        new webpack.ProvidePlugin({'$': 'jquery', 'jQuery': 'jquery'}),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 warnings: false

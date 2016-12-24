@@ -14,14 +14,10 @@ module.exports = merge(base, {
     eslint: {
         configFile: path.join(__dirname, '.eslintrc')
     },
-    devtool: 'cheap-module-eval-source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:3000/',
         'webpack/hot/only-dev-server',
         'react-hot-loader/patch',
-        'script!jquery/dist/jquery.min.js',
-        'script!bootstrap-sass/assets/javascripts/bootstrap.min.js',
-        'script!toastr/toastr.js',
         './src/app.js'
     ],
     output: {
@@ -30,7 +26,6 @@ module.exports = merge(base, {
         filename: 'bundle.js'
     },
     plugins: [
-        new webpack.ProvidePlugin({'$': 'jquery', 'jQuery': 'jquery'}),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
