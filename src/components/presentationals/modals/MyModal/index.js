@@ -1,8 +1,6 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
-import { closeModal, openModal } from 'src/actions/modal'
-
 let MyModal = props => {
   let { closeModal, modal } = props
 

@@ -2,20 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import  MyModal  from 'MyModal'
-import  Message  from 'Message'
+import  MyModal  from 'modals/MyModal'
+import  Message  from 'stateless/Message'
 
 import { openModal, closeModal } from 'src/actions/modal'
 
 require('./welcome.scss')
 
 export const Welcome = props => {
-      const { openModal, closeModal } = props
+      const { openModal, closeModal, modal } = props
 
       return(
         <div className='welcome'>
-          <Message {...props} />
-          <MyModal {...props} />
+          <Message openModal={openModal} />
+          <MyModal modal={modal} closeModal={closeModal} />
         </div>
       )
 }

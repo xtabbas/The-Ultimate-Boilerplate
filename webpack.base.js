@@ -29,10 +29,8 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
           'node_modules',
-          './src/components/containers/scenes',
-          './src/components/containers/wrappers',
-          './src/components/presentationals/modals',
-          './src/components/presentationals/reuseables'
+          './src/components/containers',
+          './src/components/presentationals'
         ],
         alias: {
             src: 'src',
