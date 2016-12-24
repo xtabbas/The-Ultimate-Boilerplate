@@ -1,11 +1,14 @@
 @import "base/variables";
 
 // bootstrap
-@import "base/bootstrap";
+@import "base/modal";
 // Components
 @import "components/page-title";
 
 html, body, #root{
   width: 100%;
-  height: 100%
+  height: 100%;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
