@@ -12,7 +12,9 @@ let MyModal = props => {
         <Modal.Title>Example Modal</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body></Modal.Body>
+      <Modal.Body>
+        <h6>It works!</h6>
+      </Modal.Body>
 
       <Modal.Footer>
         <Button onClick={() => {

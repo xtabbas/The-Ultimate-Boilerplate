@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const envFile = require('node-env-file')
 const base = require('./webpack.base');
 const merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = 'production'
 
@@ -34,7 +35,24 @@ module.exports = merge(base, {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({name: 'common', minChunks: 2})
+        new webpack.optimize.CommonsChunkPlugin({name: 'common', minChunks: 2}),
+        new HtmlWebpackPlugin({
+          template: 'src/index.html',
+          // favicon: 'src/client/assets/favicon.ico',
+          minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true
+          },
+          inject: true
+        })
     ],
     module: {
         loaders: [

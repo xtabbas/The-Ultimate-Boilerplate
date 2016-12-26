@@ -1,17 +1,35 @@
-@import "base/variables";
+// @import "base/variables";
 
 // bootstrap
 // @import "base/modal";
 // @import "base/bootstrap";
 
 // Components
-@import "components/page-title";
+// @import "components/page-title";
 
 
 html, body, #root{
   width: 100%;
   height: 100%;
-  font-family: sans-serif;
+  font-family: 'ProximaNova-Reg-webfont', 'Roboto-Regular', 'ProximaNovaReg', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+}
+
+@font-face {
+	font-family: 'ProximaNova-Reg-webfont';
+	src:url('./fonts/ProximaNova-Reg-webfont/ProximaNova-Reg-webfont.eot');
+	src:url('./fonts/ProximaNova-Reg-webfont/ProximaNova-Reg-webfont.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/ProximaNova-Reg-webfont/ProximaNova-Reg-webfont.woff2') format('woff2'),
+		url('./fonts/ProximaNova-Reg-webfont/ProximaNova-Reg-webfont.ttf') format('truetype'),
+		// url('./fonts/ProximaNova-Reg-webfont/ProximaNova-Reg-webfont.svg#proxi') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto-Regular';
+	src:url('./fonts/Roboto-Regular/Roboto-Regular.eot');
+	src:url('./fonts/Roboto-Regular/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/Roboto-Regular/Roboto-Regular.woff2') format('woff2'),
+		url('./fonts/Roboto-Regular/Roboto-Regular.ttf') format('truetype'),
+		// url('./fonts/Roboto-Regular/Roboto-Regular.svg#proxi') format('svg');
 }
