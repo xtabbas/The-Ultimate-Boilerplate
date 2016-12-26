@@ -1,5 +1,4 @@
 require("babel-polyfill")
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path');
 const webpack = require('webpack');
 const envFile = require('node-env-file')
@@ -35,16 +34,17 @@ module.exports = merge(base, {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({name: 'common', minChunks: 2}),
-        new ExtractTextPlugin('css/[name].css')
-
+        new webpack.optimize.CommonsChunkPlugin({name: 'common', minChunks: 2})
     ],
     module: {
         loaders: [
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!' + 'autoprefixer-loader?browsers=last 3 version' + '!sass-loader?outputStyle=expanded&' + 'includePaths[]=' + path.resolve(__dirname, './node_modules'))
-            }
+          {
+              test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+              loader: "file-loader?name=/fonts/[name].[ext]"
+          }, {
+              test: /\.(jpe?g|png|gif)$/i,
+              loader: "file-loader?name=/img/[name].[ext]"
+          }
         ]
     }
 });

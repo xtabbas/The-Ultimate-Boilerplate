@@ -41,10 +41,13 @@ module.exports = merge(base, {
                 exclude: /node_modules/
             }
         ],
-        loaders: [
+        loaders: [            
             {
-                test: /\.scss$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
+                test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+                loader: "file"
+            }, {
+                test: /\.(jpe?g|png|gif)$/i,
+                loader: "file"
             }
         ]
     }

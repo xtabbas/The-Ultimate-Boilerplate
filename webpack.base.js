@@ -1,6 +1,20 @@
 var path = require('path');
 
 module.exports = {
+    resolve: {
+        root: __dirname,
+        modulesDirectories: [
+            'node_modules',
+            './src/components/containers',
+            './src/components/presentationals'
+        ],
+        alias: {
+            src: 'src',
+            react: path.join(__dirname, 'node_modules', 'react'),
+            configureStore: 'src/store/configureStore.js'
+        },
+        extensions: ['', '.js']
+    },
     module: {
         loaders: [
             {
@@ -17,27 +31,10 @@ module.exports = {
                 loader: "style-loader!css-loader",
                 include: __dirname
             }, {
-                test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-                loader: "file-loader?name=/fonts/[name].[ext]"
-            }, {
-                test: /\.(jpe?g|png|gif)$/i,
-                loader: "file-loader?name=/img/[name].[ext]"
+                test: /\.scss$/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
-    },
-    resolve: {
-        root: __dirname,
-        modulesDirectories: [
-          'node_modules',
-          './src/components/containers',
-          './src/components/presentationals'
-        ],
-        alias: {
-            src: 'src',
-            react: path.join(__dirname, 'node_modules', 'react'),
-            configureStore: 'src/store/configureStore.js'
-        },
-        extensions: ['', '.js']
     },
     resolveLoader: {
         'fallback': path.join(__dirname, 'node_modules')
