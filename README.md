@@ -4,17 +4,35 @@
 ### List of features
 
   * Development server with react-hotloader 3
-  * Redux time travel with react-router
-  * Production server using Express
+  * Redux dev tool for chrome and react-router-redux
+  * Deploy ready production server using Express
   * Environment variables configured with webpack
-  * Sass/Images/Fonts loading with webpack
-  * Css extracting into its own file using Webpack
-  * Common chunk extraction using Webpack
   * Mocha testing utils with enzyme and jsdom
   * Eslinting for react
+  * Webpack configuration features
+    * Webpack Loaders
+      * Sass/Css/Style Loaders
+      * Babel Loader
+      * Fonts loading with webpack
+      * Preloader for lintin
+      * File loader for fonts and images
+    * Webpack Plugings
+      * For development server
+        * HotModuleReplacementPlugin
+        * DefinePlugin
+        * HtmlWebpackPlugin
+      * For production server
+        * UglifyJsPlugin
+        * DefinePlugin
+        * CommonsChunkPlugin
+        * HtmlWebpackPlugin
+        
 
 ### Todo
   * Webpack code splitting (PR welcomed)
+  * Server side rendering 
+  * Writing tests with enzyme for modal 
+  * Add new interactive components with tests 
   
 ### Live demo
 * https://secret-taiga-34450.herokuapp.com/
