@@ -20,6 +20,8 @@ module.exports = merge(base, {
         'webpack-dev-server/client?http://localhost:3000/',
         'webpack/hot/only-dev-server',
         'react-hot-loader/patch',
+        // 'script!jquery/dist/jquery.min.js',
+        // 'script!toastr/toastr.js',
         './src/app.js'
     ],
     output: {

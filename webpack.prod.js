@@ -15,6 +15,8 @@ try {
 module.exports = merge(base, {
     entry: {
         common: [
+          // 'script!jquery/dist/jquery.min.js',
+          // 'script!toastr/toastr.js',
         ],
         vendor: path.join(__dirname, 'src/app.js'),
         polyfill: ['babel-polyfill']
@@ -22,6 +24,7 @@ module.exports = merge(base, {
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'js/[name].bundle.js',
+        publicPath: '/',
         chunkFilename: '[name]_[chunkhash:20].js'
     },
     plugins: [
@@ -58,10 +61,10 @@ module.exports = merge(base, {
         loaders: [
           {
               test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-              loader: "file-loader?name=/fonts/[name].[ext]"
+              loader: "file-loader?name=fonts/[name].[ext]"
           }, {
               test: /\.(jpe?g|png|gif)$/i,
-              loader: "file-loader?name=/img/[name].[ext]"
+              loader: "file-loader?name=img/[name].[ext]"
           }
         ]
     }
