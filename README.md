@@ -1,6 +1,8 @@
 ## The-Ultimate-React-Redux-Webpack-Boilerplate
 >React/Redux/Hot-reloading/Webpack/React-router/Express
 
+[![Build Status](https://travis-ci.org/touqeerkhan11/The-Ultimate-Boilerplate.svg?branch=master)](https://travis-ci.org/touqeerkhan11/The-Ultimate-Boilerplate)
+
 ### List of features
 
   * Development server with react-hotloader 3
