@@ -2,7 +2,7 @@ The Ultimate Starter Kit For React Redux and Webpack
 =======================
 >React/Redux/Hot-reloading/Webpack/React-router/Express/Enzyme
 
-[![Build Status](https://travis-ci.org/touqeerkhan11/The-Ultimate-Boilerplate.svg?branch=master)](https://travis-ci.org/touqeerkhan11/The-Ultimate-Boilerplate)
+[![Build Status](https://travis-ci.org/touqeerkhan11/The-Ultimate-Boilerplate.svg?branch=master)](https://travis-ci.org/touqeerkhan11/The-Ultimate-Boilerplate)  [![Dependency Status](https://david-dm.org/touqeerkhan11/The-Ultimate-Boilerplate/status.svg?style=flat)](https://david-dm.org/touqeerkhan11/The-Ultimate-Boilerplate)
 
 **Live Demo**: https://secret-taiga-34450.herokuapp.com/
 
