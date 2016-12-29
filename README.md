@@ -6,14 +6,28 @@ The Ultimate Starter Kit For React Redux and Webpack
 
 **Live Demo**: https://secret-taiga-34450.herokuapp.com/
 
+Scripts
+---------------
+
+The easiest way to get started is to clone the repository:
+
+- `npm install` to download dependencies
+- `npm run dev` for starting a dev server with hot-reloading
+- `npm run build` for building production ready webpack build
+- `npm start` for launching production server
+- `test:watch` for starting mocha testing util with a watch flag
+
+update the package if needed `npm install -g npm-check-updates` -> `ncu -u`
+
+
 Table of Contents
 -----------------
 
 - [Features](#features)
 - [Todo](#todo)
-- [Scripts](#scripts)
 - [Project Structure](#project-structure)
 - [List of Packages](#list-of-packages)
+- [Pro Tips](#pro-tips)
 
 Features
 --------
@@ -40,20 +54,6 @@ Todo
 - Webpack code splitting (PR welcomed)
 - Server side rendering 
 - New test driven interactive component 
-
-Scripts
----------------
-
-The easiest way to get started is to clone the repository:
-
-- `npm install` to download dependencies
-- `npm run dev` for starting a dev server with hot-reloading
-- `npm run build` for building production ready webpack build
-- `npm start` for launching production server
-- `test:watch` for starting mocha testing util with a watch flag
-
-update the package if needed `npm install -g npm-check-updates` -> `ncu -u`
-
 
 Project Structure
 --------
@@ -138,3 +138,6 @@ List of Packages
 | webpack-dev-server              |               |
 | webpack-merge                   |               |
 
+Pro Tips
+--------
+Well actually I dont have any pro tips because I am also a noob (lol, no seriously) but the thing is I **wasted** alot of time configuring react-hot-loader and webpack when I started learning React and the point of this starter kit is that YOU dont have to. There are alot of starter kits out there and trust me I have checked all of them but they all lack one thing SIMPLICITY. So clone this repo and start building app with our beloved library called React without worring what goes where. Thank you and cheers.
