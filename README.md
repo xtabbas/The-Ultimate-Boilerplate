@@ -8,9 +8,6 @@ The Ultimate Starter Kit For React Redux and Webpack
 
 Scripts
 ---------------
-
-The easiest way to get started is to clone the repository:
-
 - `npm install` to download dependencies
 - `npm run dev` for starting a dev server with hot-reloading
 - `npm run build` for building production ready webpack build
@@ -26,8 +23,6 @@ Table of Contents
 - [Features](#features)
 - [Todo](#todo)
 - [Project Structure](#project-structure)
-- [List of Packages](#list-of-packages)
-- [Pro Tips](#pro-tips)
 
 Features
 --------
@@ -84,60 +79,3 @@ Project Structure
 | webpack.base.js                              | Base config file for webpack. Use this to resolve dicrectories which are used in both prod and dev servers. Also add mutuals loaders in this file.                                            |
 | webpack.dev.js                               | Development webpack configuration file.                                            |
 | webpack.prod.js                              | Production webpack configuration file.                                            |
-
-List of Packages
---------
-| Package                         | Description                                                           |
-| ------------------------------- | --------------------------------------------------------------------- |
-| axios                           |               |
-| body-parser                     |               |
-| cookie-parser                   |               |
-| express                         |               |
-| express-history-api-fallback    |               |
-| morgan                          |               |
-| node-sass                       |               |
-| react                           |               |
-| react-bootstrap                 |               |
-| react-dom                       |               |
-| react-redux                     |               |
-| react-router                    |               |
-| react-router-redux              |               |
-| redux                           |               |         
-| redux-thunk                     |               |
-| serve-favicon                   |               |
-| autoprefixer-loader             |               |
-| babel-cli                       |               |
-| babel-core                      |               |
-| babel-eslint                    |               |
-| babel-loader                    |               |
-| babel-polyfill                  |               |
-| babel-preset-es2015-loose       |               |
-| babel-preset-react              |               |
-| babel-preset-stage-0            |               |
-| babel-register                  |               |
-| css-loader                      |               |
-| debug                           |               |
-| deep-freeze-strict              |               |
-| enzyme                          |               |
-| eslint                          |               |
-| eslint-loader                   |               |
-| eslint-plugin-react             |               |
-| expect                          |               |
-| extract-text-webpack-plugin     |               |
-| file-loader                     |               |
-| html-webpack-plugin             |               |
-| jsdom                           |               |
-| mocha                           |               |
-| node-env-file                   |               |
-| react-addons-test-utils         |               |
-| react-hot-loader                |               |
-| sass-loader                     |               |
-| script-loader                   |               |
-| style-loader                    |               |
-| webpack                         |               |
-| webpack-dev-server              |               |
-| webpack-merge                   |               |
-
-Pro Tips
---------
-Well actually I dont have any pro tips because I am also a noob (lol, no seriously) but the thing is I **wasted** alot of time configuring react-hot-loader and webpack when I started learning React and the point of this starter kit is that YOU dont have to. There are alot of starter kits out there and trust me I have checked all of them but they all lack one thing SIMPLICITY. So what I tried is to build the most simplistic boilerplate with EVERY (well almost) feature out there that we may require before starting development with react. Thank you and cheers.
