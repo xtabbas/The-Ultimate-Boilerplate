@@ -140,4 +140,4 @@ List of Packages
 
 Pro Tips
 --------
-Well actually I dont have any pro tips because I am also a noob (lol, no seriously) but the thing is I **wasted** alot of time configuring react-hot-loader and webpack when I started learning React and the point of this starter kit is that YOU dont have to. There are alot of starter kits out there and trust me I have checked all of them but they all lack one thing SIMPLICITY. So clone this repo and start building app with our beloved library called React without worring what goes where. Thank you and cheers.
+Well actually I dont have any pro tips because I am also a noob (lol, no seriously) but the thing is I **wasted** alot of time configuring react-hot-loader and webpack when I started learning React and the point of this starter kit is that YOU dont have to. There are alot of starter kits out there and trust me I have checked all of them but they all lack one thing SIMPLICITY. So what I tried was to build the most simplistic boilerplate with EVERY (well almost) feature out there that we may require before starting developement with react. Thank you and cheers.
