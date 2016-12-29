@@ -2,6 +2,7 @@
   "name": "the-ultimate-boilerplate",
   "version": "1.0.0",
   "description": "The ultimate boilerplate for react and redux with hot-reloading configured for reducers and react-router",
+  "homepage": "https://touqeerkhan11.github.io/The-Ultimate-Boilerplate/",
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
@@ -69,5 +70,9 @@
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0",
     "webpack-merge": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
   }
 }
