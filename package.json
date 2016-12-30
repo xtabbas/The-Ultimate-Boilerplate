@@ -1,7 +1,7 @@
 {
   "name": "the-ultimate-boilerplate",
   "version": "1.0.0",
-  "description": "The ultimate boilerplate for react and redux with hot-reloading configured for reducers and react-router",
+  "description": "The Ultimate Starter Kit For React Redux and Webpack",
   "homepage": "https://touqeerkhan11.github.io/The-Ultimate-Boilerplate/",
   "main": "app.js",
   "scripts": {
@@ -10,15 +10,11 @@
     "dev-back": "webpack --config webpack.prod && nodemon ./bin/www",
     "build": "webpack -p --config webpack.prod",
     "test": "mocha --reporter spec test.config.js \"src/components/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch",
-    "clean:demo": "rimraf build",
-    "build:demo": "npm run clean:demo && webpack --config webpack.demo.js -p --bail",
-    "deploy": "gh-pages -d build"
+    "test:watch": "npm run test -- --watch"
   },
-  "author": "Touqeer Abbas <touqeer@sudofy.com>",
+  "author": "Touqeer Abbas <touqeerabbas49@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.15.2",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "express": "~4.14.0",
@@ -56,23 +52,17 @@
     "expect": "^1.20.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
-    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.24.1",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "node-env-file": "^0.1.8",
     "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.1",
-    "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0",
     "webpack-merge": "^2.0.0"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
   }
 }
