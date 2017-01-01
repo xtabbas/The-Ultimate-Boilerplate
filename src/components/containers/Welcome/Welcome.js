@@ -1,32 +1,48 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-import  MyModal  from 'modals/MyModal'
-import  Message  from 'stateless/Message'
+import ModalX from 'ModalX'
+import Message from 'Message'
 
-import { openModal, closeModal } from 'src/actions/modal'
+import {openModal, closeModal} from 'src/actions/modal'
 
 require('./welcome.scss')
 
-export const Welcome = props => {
-      const { openModal, closeModal, modal } = props
+export class Welcome extends Component {
 
-      return(
-        <div className='welcome'>
-          <Message openModal={openModal} />
-          <MyModal modal={modal} closeModal={closeModal} />
-        </div>
-      )
-}
+    constructor(props) {
+        super(props);
+    }
 
-const mapStateToProps = state => ({
-  modal: state.modal
-})
+    componentWillMount() {}
+    componentWillUnmount() {}
+
+    render() {
+
+        let {
+            props: {
+                openModal,
+                closeModal,
+                modal
+            }
+        } = this
+
+        return (
+            <div className='welcome'>
+                <Message openModal={openModal}/>
+                <ModalX modal={modal} closeModal={closeModal}/>
+            </div>
+        );
+    }
+
+};
+
+const mapStateToProps = state => ({modal: state.modal})
 
 const mapDispatchToProps = dispatch => ({
-  openModal: bindActionCreators(openModal, dispatch),
-  closeModal: bindActionCreators(closeModal, dispatch)
+    openModal: bindActionCreators(openModal, dispatch),
+    closeModal: bindActionCreators(closeModal, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome)

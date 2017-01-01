@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
-let MyModal = props => {
+const ModalX = props => {
+
   let { closeModal, modal } = props
 
   return(
@@ -25,4 +26,4 @@ let MyModal = props => {
   )
 }
 
-export default MyModal
+export default ModalX
