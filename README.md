@@ -16,6 +16,7 @@ Scripts
 
 update the package if needed `npm install -g npm-check-updates` -> `ncu -u`
 
+Remember only use boilerplates for what they’re good at — getting a project started quickly. Don’t be afraid to break them, twist them and generally misuse them to your will.
 
 Table of Contents
 -----------------
