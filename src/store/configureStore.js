@@ -1,9 +1,9 @@
-import { createStore, compose, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import reducer from 'src/reducers/index'
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducer from 'src/reducers/index';
 
-export var configure = (initialState = {}) => {
-  var store = createStore(
+export const configure = (initialState = {}) => {
+  const store = createStore(
     reducer,
     initialState,
     compose(
@@ -13,11 +13,12 @@ export var configure = (initialState = {}) => {
   );
 
   if (module.hot) {
-   module.hot.accept('src/reducers/index', () => {
-     const nextRootReducer = require('src/reducers/index').default;
-     store.replaceReducer(nextRootReducer);
-   });
- }
+    module.hot.accept('src/reducers/index', () => {
+      store.replaceReducer(reducer);
+    });
+  }
 
-  return store
+  return store;
 };
+
+export default configure;

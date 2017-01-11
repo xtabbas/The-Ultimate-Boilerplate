@@ -13,10 +13,9 @@ render(
 
 if (module.hot) {
   module.hot.accept('src/routes', () => {
-    const RootContainer = require('src/routes').default;
     render(
       <AppContainer>
-        {RootContainer}
+        {routes}
       </AppContainer>,
       document.getElementById('root')
     );
