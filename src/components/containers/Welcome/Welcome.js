@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import ModalX from 'ModalX';
 import Message from 'Message';
 
-import { openModalAction, closeModalAction } from 'src/actions/modal';
+import { openModal, closeModal } from 'src/actions/modal';
 
 require('./welcome.scss');
 
@@ -21,18 +21,10 @@ export class Welcome extends Component {
   componentWillUnmount() {}
 
   render() {
-    const {
-            props: {
-                openModal,
-                closeModal,
-                modal
-            }
-        } = this;
-
     return (
       <div className="welcome">
-        <Message openModal={openModal} />
-        <ModalX modal={modal} closeModal={closeModal} />
+        <Message openModal={this.props.openModal} />
+        <ModalX modal={this.props.modal} closeModal={this.props.closeModal} />
       </div>
     );
   }
@@ -47,8 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    openModalAction,
-    closeModalAction
+    openModal,
+    closeModal
   }, dispatch);
 };
 

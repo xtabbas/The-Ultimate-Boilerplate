@@ -1,11 +1,11 @@
 import { type } from 'src/constants';
 
-export const openModalAction = (modalType, modalProps) => ({
+export const openModal = (modalType, modalProps) => ({
   type: type.OPEN_MODAL,
   modalType,
   modalProps
 });
 
-export const closeModalAction = () => ({
+export const closeModal = () => ({
   type: type.CLOSE_MODAL
 });
