@@ -1,26 +1,26 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var fallback = require('express-history-api-fallback')
+const express = require('express');
+const path = require('path');
+// const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const fallback = require('express-history-api-fallback');
 
-var app = express();
+const app = express();
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//include api here
+// include api here
 // require('./api/accounts/signin')(app);
 
-var root = path.join(__dirname, 'public')
-app.use(fallback('index.html', { root: root }))
+const root = path.join(__dirname, 'public');
+app.use(fallback('index.html', { root }));
 
 // connect to database
 // mongoose.connect(process.env.MONGO_URI);

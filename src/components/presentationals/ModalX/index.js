@@ -1,3 +1,3 @@
-import ModalX from './ModalX'
+import ModalX from './ModalX';
 
-export default ModalX
+export default ModalX;

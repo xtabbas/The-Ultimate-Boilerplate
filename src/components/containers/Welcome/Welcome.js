@@ -1,48 +1,55 @@
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import ModalX from 'ModalX'
-import Message from 'Message'
+import ModalX from 'ModalX';
+import Message from 'Message';
 
-import {openModal, closeModal} from 'src/actions/modal'
+import { openModalAction, closeModalAction } from 'src/actions/modal';
 
-require('./welcome.scss')
+require('./welcome.scss');
 
 export class Welcome extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+  static propTypes = {
+    modal: PropTypes.object,
+    closeModal: PropTypes.func,
+    openModal: PropTypes.func
+  }
 
-    componentWillMount() {}
-    componentWillUnmount() {}
+  componentWillMount() {}
+  componentWillUnmount() {}
 
-    render() {
-
-        let {
+  render() {
+    const {
             props: {
                 openModal,
                 closeModal,
                 modal
             }
-        } = this
+        } = this;
 
-        return (
-            <div className='welcome'>
-                <Message openModal={openModal}/>
-                <ModalX modal={modal} closeModal={closeModal}/>
-            </div>
-        );
-    }
+    return (
+      <div className="welcome">
+        <Message openModal={openModal} />
+        <ModalX modal={modal} closeModal={closeModal} />
+      </div>
+    );
+  }
 
+}
+
+const mapStateToProps = (state) => {
+  return {
+    modal: state.modal
+  };
 };
 
-const mapStateToProps = state => ({modal: state.modal})
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    openModalAction,
+    closeModalAction
+  }, dispatch);
+};
 
-const mapDispatchToProps = dispatch => ({
-    openModal: bindActionCreators(openModal, dispatch),
-    closeModal: bindActionCreators(closeModal, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
