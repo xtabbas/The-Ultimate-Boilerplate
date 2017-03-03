@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Message = props => {
+const Message = (props) => {
   const { openModal } = props;
 
   return (

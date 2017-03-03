@@ -5,6 +5,8 @@ const envFile = require('node-env-file');
 const base = require('./webpack.base');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
 
@@ -15,30 +17,34 @@ try {
 }
 
 module.exports = merge(base, {
-  entry: {
-    common: [
-          // 'script!jquery/dist/jquery.min.js',
-          // 'script!toastr/toastr.js',
-    ],
-    vendor: path.join(__dirname, 'src/app.js'),
-    polyfill: ['babel-polyfill']
-  },
+  devtool: 'source-map',
+  target: 'web',
+  entry: path.resolve(__dirname, 'src/app.js'),
   output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'js/[name].bundle.js',
-    publicPath: '/',
-    chunkFilename: '[name]_[chunkhash:20].js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].[chunkhash].js',
+    publicPath: '/'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
+    new WebpackMd5Hash(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
     }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: true
+    //   },
+    //   sourceMap: true
+    // }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
+    }),
+    new ExtractTextPlugin({
+      filename: 'bundle.css',
+      disable: false,
+      allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'common', minChunks: 2 }),
     new HtmlWebpackPlugin({
@@ -60,13 +66,19 @@ module.exports = merge(base, {
     })
   ],
   module: {
-    loaders: [
-      {
-        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
-      }, {
-        test: /\.(jpe?g|png|gif)$/i,
-        loader: 'file-loader?name=img/[name].[ext]'
+    rules: [
+      { test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?name=fonts/[name].[ext]' },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]' },
+      { test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]' },
+      { test: /\.svg(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[name].[ext]' },
+      { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=img/[name].[ext]' },
+      { test: /\.ico$/, loader: 'file-loader?name=img/[name].[ext]' },
+      { test: /(\.css|\.scss)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+          publicPath: '/dist'
+        })
       }
     ]
   }

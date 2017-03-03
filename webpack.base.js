@@ -2,41 +2,22 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    root: __dirname,
-    modulesDirectories: [
-      'node_modules',
-      './src/components/containers',
-      './src/components/presentationals'
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'src/components/containers'),
+      path.resolve(__dirname, 'src/components/presentationals'),
+      'node_modules'
     ],
     alias: {
-      src: 'src',
+      src: path.resolve(__dirname, 'src'),
       react: path.join(__dirname, 'node_modules', 'react'),
-      configureStore: 'src/store/configureStore.js'
+      configureStore: path.resolve(__dirname, 'src/store/configureStore')
     },
-    extensions: ['', '.js']
+    extensions: ['.js']
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loaders: ['babel'],
-        exclude: /node_modules/,
-        include: __dirname
-      }, {
-        test: /\.js$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, '..', '..', 'src')
-      }, {
-        test: /\.css?$/,
-        loader: 'style-loader!css-loader',
-        include: __dirname
-      }, {
-        test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-      }
+    rules: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, include: path.join(__dirname, 'src') }
     ]
-  },
-  resolveLoader: {
-    fallback: path.join(__dirname, 'node_modules')
   }
 };

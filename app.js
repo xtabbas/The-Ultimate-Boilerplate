@@ -14,12 +14,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // include api here
 // require('./api/accounts/signin')(app);
 
-const root = path.join(__dirname, 'public');
+const root = path.join(__dirname, 'dist');
 app.use(fallback('index.html', { root }));
 
 // connect to database
