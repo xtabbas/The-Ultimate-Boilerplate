@@ -14,16 +14,11 @@ try {
 }
 
 module.exports = merge(base, {
-  eslint: {
-    configFile: path.join(__dirname, '.eslintrc.js')
-  },
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:3000/',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
-        // 'script!jquery/dist/jquery.min.js',
-        // 'script!toastr/toastr.js',
     './src/app.js'
   ],
   output: {
@@ -33,33 +28,16 @@ module.exports = merge(base, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-          // favicon: 'src/assets/favicon.ico',
-      inject: true
-    })
+    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) } }),
+    new HtmlWebpackPlugin({ template: 'src/index.html', inject: true })
   ],
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader?{rules:{semi:0}}',
-        exclude: /node_modules/
-      }
-    ],
-    loaders: [
-      {
-        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-        loader: 'file'
-      }, {
-        test: /\.(jpe?g|png|gif)$/i,
-        loader: 'file'
-      }
+    rules: [
+      { test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/, loader: 'file-loader' },
+      { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader' },
+      { test: /\.js$/, loader: 'eslint-loader?{rules:{semi:0}}', exclude: /node_modules/, enforce: 'pre' },
+      { test: /\.css?$/, loader: 'style-loader!css-loader', include: path.join(__dirname, 'src') },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
     ]
   }
 });
