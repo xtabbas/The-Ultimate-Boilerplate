@@ -74,6 +74,7 @@ module.exports = merge(base, {
   ],
   module: {
     rules: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, include: path.join(__dirname, 'src') },
       { test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?name=fonts/[name].[ext]' },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]' },
       { test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]' },

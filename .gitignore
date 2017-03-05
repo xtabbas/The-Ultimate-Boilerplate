@@ -24,3 +24,6 @@ npm-debug.log.*
 # Webpack Build Directory
 dist
 dist/*
+
+# Happy Pack Cache
+.happypack

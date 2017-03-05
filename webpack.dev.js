@@ -4,6 +4,7 @@ const envFile = require('node-env-file');
 const base = require('./webpack.base');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HappyPack = require('happypack');
 
 process.env.NODE_ENV = 'development';
 
@@ -29,15 +30,20 @@ module.exports = merge(base, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) } }),
-    new HtmlWebpackPlugin({ template: 'src/index.html', inject: true })
+    new HtmlWebpackPlugin({ template: 'src/index.html', inject: true }),
+    new HappyPack({ id: 'js', threads: 4, loaders: ['babel-loader', 'eslint-loader?{rules:{semi:0}}'] }),
+    new HappyPack({ id: 'css', threads: 4, loaders: ['style-loader', 'css-loader'] }),
+    new HappyPack({ id: 'sass', threads: 4, loaders: ['style-loader', 'css-loader', 'sass-loader'] })
+
   ],
   module: {
     rules: [
+      { test: /\.js$/, loader: 'happypack/loader?id=js', exclude: /node_modules/, include: path.join(__dirname, 'src') },
+      // { test: /\.js$/, loader: 'happypack/loader?id=js', exclude: /node_modules/, enforce: 'pre' },
       { test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/, loader: 'file-loader' },
       { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader' },
-      { test: /\.js$/, loader: 'eslint-loader?{rules:{semi:0}}', exclude: /node_modules/, enforce: 'pre' },
-      { test: /\.css?$/, loader: 'style-loader!css-loader', include: path.join(__dirname, 'src') },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
+      { test: /\.css?$/, loader: 'happypack/loader?id=css', include: path.join(__dirname, 'src') },
+      { test: /\.scss$/, loader: 'happypack/loader?id=sass', include: path.join(__dirname, 'src') }
     ]
   }
 });

@@ -26,7 +26,7 @@ export class DumbComponent extends Component {
           }}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Example Modal</Modal.Title>
+            <Modal.Title>Ahha</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
