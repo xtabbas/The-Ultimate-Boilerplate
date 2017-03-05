@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import reducer from 'src/reducers/index';
+import reducer from 'src/modules/index';
 
 export const configure = (initialState = {}) => {
   const store = createStore(
@@ -13,7 +13,7 @@ export const configure = (initialState = {}) => {
   );
 
   if (module.hot) {
-    module.hot.accept('src/reducers/index', () => {
+    module.hot.accept('src/modules/index', () => {
       store.replaceReducer(reducer);
     });
   }

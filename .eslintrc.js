@@ -57,6 +57,7 @@ module.exports = {
     'react/prefer-stateless-function': 0,
     'react/jsx-no-bind': 0,
     'no-unused-expressions': ["error", { "allowTernary": true }],
-    'import/extensions': ['off', 'never']
+    'import/extensions': ['off', 'never'],
+    "react/forbid-prop-types": [0]
   }
 };

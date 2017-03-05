@@ -19,7 +19,14 @@ try {
 module.exports = merge(base, {
   devtool: 'source-map',
   target: 'web',
-  entry: path.resolve(__dirname, 'src/app.js'),
+  entry: {
+    js: [
+      path.resolve(__dirname, 'src/app.js')
+    ],
+    vendor: [
+      'react', 'react-dom'
+    ]
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].[chunkhash].js',

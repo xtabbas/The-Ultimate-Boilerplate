@@ -24,6 +24,3 @@ npm-debug.log.*
 # Webpack Build Directory
 dist
 dist/*
-
-# Environment configuration
-config/
