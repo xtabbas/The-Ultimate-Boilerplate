@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const ModalX = props => {
+const ModalX = (props) => {
   const { closeModal, modal } = props;
 
   return (
@@ -32,6 +32,10 @@ const ModalX = props => {
 export default ModalX;
 
 ModalX.propTypes = {
-  modal: PropTypes.object,
-  closeModal: PropTypes.func
+  modal: PropTypes.obj,
+  closeModal: PropTypes.func.isRequired
+};
+
+ModalX.defaultProps = {
+  modal: {}
 };

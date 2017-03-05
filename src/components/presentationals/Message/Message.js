@@ -22,5 +22,5 @@ const Message = (props) => {
 export default Message;
 
 Message.propTypes = {
-  openModal: PropTypes.func
+  openModal: PropTypes.func.isRequired
 };

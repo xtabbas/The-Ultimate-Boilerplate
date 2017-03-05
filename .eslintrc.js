@@ -36,7 +36,7 @@ module.exports = {
     'computed-property-spacing': [ 2, 'always' ],
     'eqeqeq': [ 2, 'smart' ],
     'indent': [ 2, 2, { 'VariableDeclarator': 2 } ],
-    'linebreak-style': [ 2, 'unix' ],
+    'linebreak-style': [ 2, 'windows' ],
     'no-console': [ 0 ],
     'no-underscore-dangle': [ 0 ],
     'no-unneeded-ternary': [ 2 ],
@@ -56,6 +56,7 @@ module.exports = {
     'import/no-duplicate': 0,
     'react/prefer-stateless-function': 0,
     'react/jsx-no-bind': 0,
-    'no-unused-expressions': ["error", { "allowTernary": true }]
+    'no-unused-expressions': ["error", { "allowTernary": true }],
+    'import/extensions': ['off', 'never']
   }
 };
