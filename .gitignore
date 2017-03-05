@@ -13,15 +13,6 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directory
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
 node_modules
@@ -31,6 +22,8 @@ npm-debug.log
 npm-debug.log.*
 
 # Webpack Build Directory
-dist/
-dist/*
 dist
+dist/*
+
+# Environment configuration
+config/
