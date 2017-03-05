@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 const actions = {
-  TOGGLE_TEXT: 'TOGGLE_TEXT',
   OPEN_MODAL: 'OPEN_MODAL',
   CLOSE_MODAL: 'CLOSE_MODAL'
 };
@@ -19,8 +18,12 @@ export const closeModal = () => ({
   type: actions.CLOSE_MODAL
 });
 
+const initialState = {
+  modalType: null,
+  modalProps: {}
+};
 
-export const stateReducer = (state = null, { type, payload }) => {
+export const modalReducer = (state = initialState, { type, payload }) => {
   switch (type) {
   case actions.OPEN_MODAL:
     return {
@@ -39,7 +42,7 @@ export const stateReducer = (state = null, { type, payload }) => {
 };
 
 const rootReducer = combineReducers({
-  stateReducer,
+  modal: modalReducer,
   routing: routerReducer
 });
 
