@@ -3,6 +3,13 @@ import { Link } from 'react-router';
 
 class App extends Component {
 
+  componentDidMount() {
+    const socket = io();
+    socket.on('onlineUsers', (onlineUsers) => {
+      console.log(onlineUsers);
+    });
+  }
+
   render() {
     return (
       <div>
