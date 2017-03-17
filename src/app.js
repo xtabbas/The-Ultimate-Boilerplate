@@ -3,22 +3,25 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { configure } from 'configureStore';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory, Router } from 'react-router';
 import { Provider } from 'react-redux';
 
-import routes from 'src/routes';
+// import createHistory from 'history/createBrowserHistory';
+// import { Route } from 'react-router';
+// import { ConnectedRouter } from 'react-router-redux';
+// import { renderRoutes } from 'react-router-config';
 
+// import route from 'src/routes';
+import App from 'src/routes';
+
+// const routes = [route];
+// const history = createHistory();
 
 const store = configure();
-const history = syncHistoryWithStore(browserHistory, store);
 
 render(
   <AppContainer>
     <Provider store={store}>
-      <Router key={Math.random()} history={history} >
-        {routes}
-      </Router>
+      <App />
     </Provider>
   </AppContainer>,
   document.getElementById('root')
@@ -29,9 +32,7 @@ if (module.hot) {
     render(
       <AppContainer>
         <Provider store={store}>
-          <Router key={Math.random()} history={history} >
-            {routes}
-          </Router>
+          <App />
         </Provider>
       </AppContainer>,
       document.getElementById('root')

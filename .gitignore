@@ -27,3 +27,6 @@ dist/*
 
 # Happy Pack Cache
 .happypack
+
+# Webpack Manifest file
+manifest.json

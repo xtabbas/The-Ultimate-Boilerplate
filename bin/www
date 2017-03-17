@@ -23,25 +23,6 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-// const net = require('net');
-
-let onlineUsers = 0;
-
-// const HOST = 'https://ws.chatkoo.com';
-// const client = new net.Socket();
-// const numUsers = 0;
-
-// now setup the sockets.io functionality
-const io = require('socket.io')(server);
-
-io.on('connection', (socket) => {
-  console.log(`A client is connected:${socket.id}`);
-  onlineUsers++;
-  io.sockets.emit('onlineUsers', {
-    onlineUsers
-  });
-});
-
 server.listen(port);
 
 function onError(error) {

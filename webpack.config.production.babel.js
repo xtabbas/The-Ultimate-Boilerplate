@@ -2,7 +2,7 @@ require('babel-polyfill');
 const path = require('path');
 const webpack = require('webpack');
 const envFile = require('node-env-file');
-const base = require('./webpack.base');
+const base = require('./webpack.config.base');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
@@ -21,7 +21,7 @@ module.exports = merge(base, {
   target: 'web',
   entry: {
     js: [
-      path.resolve(__dirname, 'src/app.js')
+      path.resolve(__dirname, 'src/main.js')
     ],
     vendor: [
       'react', 'react-dom'
@@ -39,9 +39,8 @@ module.exports = merge(base, {
     }),
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
-    //     warnings: true
-    //   },
-    //   sourceMap: true
+    //     warnings: false
+    //   }
     // }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -56,7 +55,7 @@ module.exports = merge(base, {
     new webpack.optimize.CommonsChunkPlugin({ name: 'common', minChunks: 2 }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-          // favicon: 'src/client/assets/favicon.ico',
+      // favicon: 'src/styles/images/favicon.png',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

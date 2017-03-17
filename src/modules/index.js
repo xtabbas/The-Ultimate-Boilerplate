@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+// import { routerReducer } from 'react-router-redux';
 
 const actions = {
   OPEN_MODAL: 'OPEN_MODAL',
@@ -42,8 +42,7 @@ export const modalReducer = (state = initialState, { type, payload }) => {
 };
 
 const rootReducer = combineReducers({
-  modal: modalReducer,
-  routing: routerReducer
+  modal: modalReducer
 });
 
 export default rootReducer;

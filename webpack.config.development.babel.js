@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const envFile = require('node-env-file');
-const base = require('./webpack.base');
+const base = require('./webpack.config.base');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HappyPack = require('happypack');
@@ -20,7 +20,7 @@ module.exports = merge(base, {
     'webpack-dev-server/client?http://localhost:8080/',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
-    './src/app.js'
+    './src/main.js'
   ],
   output: {
     path: path.join(__dirname, 'public'),
@@ -29,8 +29,13 @@ module.exports = merge(base, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) } }),
-    new HtmlWebpackPlugin({ template: 'src/index.html', inject: true }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      // favicon: 'src/styles/images/favicon.png',
+      inject: true
+    }),
     new HappyPack({ id: 'js', threads: 4, loaders: ['babel-loader', 'eslint-loader?{rules:{semi:0}}'] }),
     new HappyPack({ id: 'css', threads: 4, loaders: ['style-loader', 'css-loader'] }),
     new HappyPack({ id: 'sass', threads: 4, loaders: ['style-loader', 'css-loader', 'sass-loader'] })

@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, Route } from 'react-router-dom';
+import chunk1 from 'src/routes/Chunk1/components/Chunk1.js';
 
 class App extends Component {
 
   componentDidMount() {
-    const socket = io();
-    socket.on('onlineUsers', (onlineUsers) => {
-      console.log(onlineUsers);
-    });
+    // const socket = io();
+    // socket.on('onlineUsers', (onlineUsers) => {
+    //   console.log(onlineUsers);
+    // });
   }
 
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
       <div>
         <Link to="/chunk1">chunk1</Link>
         <Link to="/chunk2">chunk2</Link>
-        {this.props.children}
+        <Route path="/chunk1" component={chunk1} />
       </div>
     );
   }
