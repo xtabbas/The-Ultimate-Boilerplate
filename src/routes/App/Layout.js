@@ -6,15 +6,18 @@ import Helmet from 'react-helmet';
 import { Home, Login, Signup, Landing } from 'routes';
 import Miss404 from 'routes/Miss404';
 
+import PrivateRoute from 'utils/PrivateRoute';
+import PublicRoute from 'utils/PublicRoute';
+
 const Layout = () => (
   <div>
     <Helmet titleTemplate="%s - DeviceNet" defaultTitle="DeviceNet" />
 
     <Switch>
-      <Route path="/" component={Home} exact={true} />
-      <Route path="/login" component={Login} exact={true} />
-      <Route path="/Signup" component={Signup} exact={true} />
-      <Route path="/Landing" component={Landing} exact={true} />
+      <PublicRoute path="/" component={Home} exact={true} />
+      <PublicRoute path="/login" component={Login} exact={true} />
+      <PublicRoute path="/Signup" component={Signup} exact={true} />
+      <PrivateRoute path="/Landing" component={Landing} exact={true} />
       <Route component={Miss404} />
     </Switch>
 
@@ -22,3 +25,4 @@ const Layout = () => (
 );
 
 export default Layout;
+

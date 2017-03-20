@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import LoginContainer from 'containers/LoginContainer';
 
 class Login extends Component {
 
@@ -9,8 +9,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-          Hello Login
-          <Link to="signup">Signup</Link>
+        <LoginContainer />
       </div>
     );
   }

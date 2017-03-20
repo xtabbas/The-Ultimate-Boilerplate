@@ -9,7 +9,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Link to="/login">Hello Home</Link>
+        <h4>Home page</h4>
+        <Link to="/login">Go To Login</Link>
+        <h5>
+          /landing is not allowed access until user logs in
+        </h5>
       </div>
     );
   }
