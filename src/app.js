@@ -10,7 +10,8 @@ import App from 'src/routes';
 
 const store = configure();
 
-render(
+function renderDOM() {
+  render(
   <AppContainer>
     <Provider store={store}>
       <App />
@@ -18,17 +19,12 @@ render(
   </AppContainer>,
   document.getElementById('root')
 );
+}
+renderDOM();
 
 if (module.hot) {
   module.hot.accept('src/routes', () => {
-    render(
-      <AppContainer>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </AppContainer>,
-      document.getElementById('root')
-    );
+    renderDOM();
   });
 }
 
