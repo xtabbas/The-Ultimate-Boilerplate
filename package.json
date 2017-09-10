@@ -5,7 +5,7 @@
   "homepage": "https://touqeerkhan11.github.io/The-Ultimate-Boilerplate/",
   "main": "app.js",
   "engines":{
-    "node": "6.10.2"
+    "node": "6.10.0"
   },
   "scripts": {
     "postinstall": "npm run build",
