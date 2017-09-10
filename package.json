@@ -4,7 +4,11 @@
   "description": "The Ultimate Starter Kit For React Redux and Webpack",
   "homepage": "https://touqeerkhan11.github.io/The-Ultimate-Boilerplate/",
   "main": "app.js",
+  "engines":{
+    "node": "6.10.2"
+  },
   "scripts": {
+    "postinstall": "npm run build",
     "start": "node ./bin/www --babel",
     "dev": "node dev-server.js",
     "build": "webpack --json > manifest.json -p --config webpack.config.production.babel.js"
