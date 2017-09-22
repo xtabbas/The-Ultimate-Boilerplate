@@ -23,7 +23,9 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port);
+server.listen(port, function(){
+  console.log('listening on port', port)
+});
 
 function onError(error) {
   if (error.syscall !== 'listen') {

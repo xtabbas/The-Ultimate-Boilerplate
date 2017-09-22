@@ -51,7 +51,8 @@ class PrivateRoute extends Component {
     if (isAuthenticated !== null) {
       return (
         <Route
-          {...rest} render={props => (
+          {...rest}
+          render={props => (
             isAuthenticated ? (
               React.createElement(component, props)
             ) : (

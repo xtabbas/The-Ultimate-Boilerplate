@@ -1,32 +1,46 @@
-// Loosely based on "Polyfills: everything you ever wanted to know, or maybe a bit less" by David Gilbertson
-// https://hackernoon.com/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423#.qtc0jwnhc
+import React from 'react';
+import { render } from 'react-dom';
+import nprogress from 'nprogress';
+import configureStore from './store/configureStore';
+import Root from './routes/index';
 
-import 'babel-polyfill';
+// Inject global styles
+import('src/styles/app.scss');
+// Hide spinner from nprogress
+nprogress.configure({
+  showSpinner: false
+});
 
-// Used to load external polyfills
-import loadJS from 'fg-loadjs';
-// Mounts the app only after we are done polyfilling
-import mount from './mount';
+// Configure Redux store
+const store = configureStore();
 
-// Webpack manifest
+// Render React
+const rootEl = document.getElementById('root');
+
 if (process.env.NODE_ENV === 'production') {
-  // window.webpackManifest = JSON.parse(document.getElementById('manifest').innerHTML);
-}
+  // console.log = () => {};
+  render(<Root store={store} />, rootEl);
+} else {
+  const AppContainer = require('react-hot-loader').AppContainer; // eslint-disable-line global-require
+  // Trick babel to avoid hoisting <AppContainer />
+  // transform-react-constant-elements
+  const noHoist = {};
 
-// The following should resolve immediatelly in modern browsers
-Promise.all([
-  // Really-old browsers that need to be taken by the hand
-  // This requires HTTP request out of our control
-  new Promise((resolve) => {
-    if (
-         'requestAnimationFrame' in window
-      && 'classList' in HTMLElement.prototype
-    ) {
-      resolve();
-    } else {
-      loadJS('https://cdn.polyfill.io/v2/polyfill.min.js?flags=gated&features=requestAnimationFrame,Element.prototype.classList', resolve);
-    }
-  }),
-  // Fetch polyfill
-  'fetch' in window ? Promise.resolve() : import('whatwg-fetch')
-]).then(mount);
+  render((
+    <AppContainer {...noHoist}>
+      <Root store={store} />
+    </AppContainer>
+  ), rootEl);
+
+  // Hot Reloading
+  if (module.hot) {
+    module.hot.accept('./routes/index', () => {
+      render(
+        <AppContainer {...noHoist}>
+          <Root store={store} />
+        </AppContainer>,
+        rootEl
+      );
+    });
+  }
+}

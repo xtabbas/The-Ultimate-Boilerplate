@@ -25,8 +25,8 @@ npm-debug.log.*
 dist
 dist/*
 
-# Happy Pack Cache
-.happypack
+# DS_Store
+.DS_Store
 
-# Webpack Manifest file
-manifest.json
+# Config
+.env

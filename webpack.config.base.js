@@ -1,6 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -24,15 +22,6 @@ module.exports = {
     },
     extensions: ['.js']
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      'window.Tether': 'tether'
-    }),
-    new ExtractTextPlugin('css/[name]-[hash].css')
-  ],
   module: {
     rules: []
   }

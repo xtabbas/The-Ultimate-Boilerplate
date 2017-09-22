@@ -43,8 +43,6 @@ export default function asyncRoute(getComponent) {
     }
 
   // Flag to check if we are still mounted after async stuff finishes
-    mounted = false;
-
     state = {
       Component: AsyncComponent.Component
     };
@@ -100,6 +98,8 @@ export default function asyncRoute(getComponent) {
     // Mark that we are no longer mounted to avoid setting state if the wrapped component still hasn't loaded
       this.mounted = false;
     }
+
+    mounted = false;
 
     render() {
       const { Component } = this.state;

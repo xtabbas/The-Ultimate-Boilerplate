@@ -1,20 +1,19 @@
 require('babel-polyfill');
 const path = require('path');
 const webpack = require('webpack');
-const envFile = require('node-env-file');
 const base = require('./webpack.config.base');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const getClientEnvironment = require('./bin/env');
+const paths = require('./bin/paths');
 
-process.env.NODE_ENV = 'production';
-
-try {
-  envFile(path.join(__dirname, `config/${process.env.NODE_ENV}.env`));
-} catch (e) {
-  throw e;
-}
+const publicPath = paths.servedPath;
+const publicUrl = publicPath.slice(0, -1);
+const env = getClientEnvironment(publicUrl);
 
 module.exports = merge(base, {
   devtool: 'source-map',
@@ -34,28 +33,29 @@ module.exports = merge(base, {
   },
   plugins: [
     new WebpackMd5Hash(),
+    new CaseSensitivePathsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
-    //     warnings: false
+    //     warnings: false,
+    //     drop_console: false
     //   }
     // }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
+    new ProgressBarPlugin({
+      format: '(:current/:total) (:msg) [:bar] (:percent)',
+      clear: false
     }),
+    new webpack.DefinePlugin(env.stringified),
     new ExtractTextPlugin({
-      filename: 'bundle.css',
-      disable: false,
+      filename: 'css/[name].[hash].css',
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'common', minChunks: 2 }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      // favicon: 'src/styles/images/favicon.png',
+      favicon: 'src/styles/images/favicon.jpg',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -83,7 +83,10 @@ module.exports = merge(base, {
       { test: /(\.css|\.scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: [
+            'css-loader?sourceMap',
+            'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
+          ]
         })
       }
     ]
