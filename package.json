@@ -1,10 +1,10 @@
 {
   "name": "the-ultimate-boilerplate",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "The Ultimate Starter Kit For React Redux and Webpack",
   "homepage": "https://touqeerkhan11.github.io/The-Ultimate-Boilerplate/",
   "main": "app.js",
-  "engines":{
+  "engines": {
     "node": "6.10.0"
   },
   "scripts": {
